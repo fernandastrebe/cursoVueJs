@@ -31,8 +31,19 @@
         },
         computed:{
             resultadoNome(){
-                console.log('Chamou método resultado nome.');
                 return this.nome.length >= 10 ? 'Mais que 10 letras!' : 'Menor que 10 letras!';
+            }
+        },
+        watch:{
+            nome(novo, antigo){
+                console.log('Novo nome: ' + novo);
+                console.log('Antigo nome: ' + antigo);
+
+                setTimeout(()=>{
+                    //após 2 segundos do item acima, irá alterar a variável número para 999
+                    this.numero = 999;
+                }, 2000);
+
             }
         }
     })
