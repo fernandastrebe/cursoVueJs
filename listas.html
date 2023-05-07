@@ -4,6 +4,14 @@
     <ul>
         <li v-for="(tech, index) in tecnologias" :key="tech"> {{tech}} - {{index}} </li>
     </ul>
+
+    <hr/>
+
+    <div v-for="aluno in alunos" :key="aluno.id">
+        <p> {{aluno.id}} - {{aluno.nome}}</p>
+        <p> Status: {{aluno.status}}</p>
+
+    </div>
 </div>
 
 <script>
@@ -12,6 +20,11 @@
         data(){
             return{
                 tecnologias: ['JavaScript', 'PHP', 'NodeJs', 'VueJs', 'ReactJs'],
+                alunos: [
+                    {id: 1, nome: 'Fernanda', status: 'cursando'},
+                    {id: 2, nome: 'Lucas', status: 'cursando'},
+                    {id: 3, nome: 'Pedro', status: 'curso concluído'},
+                ]
             }
         }
     })
