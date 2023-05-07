@@ -2,8 +2,14 @@
 
 <div id="app">
     <h1> Primeiro App </h1>
-    <p>Bem-vinda {{nome}} </p>
-    <p> {{bemVindo()}} </p>
+    <p v-once>Bem-vindo(a) {{ nome }} </p>
+
+    <a v-bind:href="canal">Canal youtube</a>
+    <br/>
+    <button v-on:click="entrar(250)">Entrar</button>
+    <button v-on:click.once="entrar(250)">Numero 5 once</button>
+    <br/>
+    <p>Bem vindo {{ entrar2() }}</p>
 </div>
 
 <script>
@@ -11,14 +17,20 @@
         el: '#app',
         data(){
             return{
-                nome: 'Fernanda',
-                idade:23
+                nome: 'Carol',
+                canal: 'https://youtube.com/c/warren'
             }
         },
-        methods:{
-            bemVindo(){
-                return "Bem vinda " + this.nome;
+        methods: {
+            entrar(numero){
+                this.nome += numero;
+            },
+            
+            entrar2(){
+                this.nome = 'Lucas';
+                return this.nome;
             }
         }
+        
     })
 </script>
