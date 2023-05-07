@@ -2,11 +2,20 @@
 
 <div id="app">
     <h1 v-if="auth">Bem-vindo {{ usuario }} </h1>
-    <p v-else> Você está logado como visitante</p>
+
+    <h1 v-else-if="visitante">Usuário: visitante</h1>
+
+    <p v-else> Nenhum usuário está logado...</p>
 
     <button v-on:click="auth = !auth">
         {{ auth ? 'Deslogar' : 'Entrar'}}
     </button>
+
+    <button @click="visitante = !visitante">
+        {{ visitante ? 'Deslogar do visitante' : 'Entrar como visitante'}}
+    </button>
+
+    <h2 v-show="visitante">Aprendendo VueJs na prática!!</h2>
 </div>
 
 <script>
@@ -15,7 +24,8 @@
         data(){
             return{
                 usuario: 'Fernanda',
-                auth: false
+                auth: false,
+                visitante: false
             }
         },
     })
